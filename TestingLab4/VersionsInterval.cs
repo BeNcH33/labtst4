@@ -191,7 +191,7 @@ namespace TestingLab4
             }
             return false;
         }
-        public static VersionsInterval[] Union(VersionsInterval version1, VersionsInterval version2)
+        public static VersionsInterval[] Intersection(VersionsInterval version1, VersionsInterval version2)
         {
             if (version1.leftVersion <= version2.leftVersion)
             {
@@ -208,7 +208,7 @@ namespace TestingLab4
                 }
                 if (version1.rightVersion <= version2.leftVersion)
                 {
-                    return new VersionsInterval[] { version1, version2 };
+                    return null;
                 }
             }
             if (version2.leftVersion <= version1.leftVersion)
@@ -226,12 +226,12 @@ namespace TestingLab4
                 }
                 if (version2.rightVersion <= version1.leftVersion)
                 {
-                    return new VersionsInterval[] { version2, version1 };
+                    return null;
                 }
             }
             return new VersionsInterval[0];
         }
-        public static VersionsInterval? Intersection(VersionsInterval version1, VersionsInterval version2)
+        public static VersionsInterval? Union(VersionsInterval version1, VersionsInterval version2)
         {
             if (version1.leftVersion <= version2.leftVersion)
             {
