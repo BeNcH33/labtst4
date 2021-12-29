@@ -22,7 +22,7 @@ namespace TestingLab4
 
 			Assert.AreEqual(VersionsInterval.Intersection(new VersionsInterval("<2.0.0"), new VersionsInterval(">3.0.0")), null);
 
-			Assert.AreNotEqual(VersionsInterval.Intersection(new VersionsInterval("<3.0.0"), new VersionsInterval(">2.0.0")), null);
+			Assert.AreEqual(VersionsInterval.Intersection(new VersionsInterval(">3.0.0"), new VersionsInterval("<2.0.0")), null);
 		}
 		[Test]
 		public void UnionTest() //Объединение 
