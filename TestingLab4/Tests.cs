@@ -17,6 +17,8 @@ namespace TestingLab4
 			Assert.AreEqual(new VersionsInterval(new Versions("4.0.0"), new Versions("4.5.7")).ToString(),VersionsInterval.Union(new VersionsInterval(">3.1.1 <=4.5.7"),new VersionsInterval(">=4.0.0 <8.0.1"))[0].ToString());
 			Assert.AreEqual(new VersionsInterval(new Versions("3.1.4"), new Versions("5.0.9")).ToString(),VersionsInterval.Union(new VersionsInterval(">0.0.0 <=9.3.1"),new VersionsInterval(new Versions("3.1.4"), new Versions("5.0.9")))[0].ToString());
 			Assert.AreEqual((new VersionsInterval(new Versions("4.0.0"), new Versions("5.0.0")).ToString()), VersionsInterval.Union(new VersionsInterval(">=1.0.0 <=5.0.0"), new VersionsInterval(new Versions("4.0.0"), new Versions("7.0.0")))[0].ToString());
+			//Assert.AreEqual(( VersionsInterval.Union(new VersionsInterval("<=2.0.0 >=3.0.0"), new VersionsInterval(new Versions("3.1.0"), new Versions("3.5.0")))).ToString(), VersionsInterval.Union(new VersionsInterval(">=1.0.0 <=3.5.0"), new VersionsInterval(new Versions("1.5.0"), new Versions("4.0.0")))[0].ToString());
+			Assert.AreEqual((new VersionsInterval(new Versions("3.0.0"), new Versions("5.0.0")).ToString()), VersionsInterval.Union(new VersionsInterval(">=2.0.0 <=5.0.0"), new VersionsInterval(">=3.0.0 <=7.0.0"))[0].ToString());
 		}
 		[Test]
 		public void IntersectionTest()
@@ -26,6 +28,7 @@ namespace TestingLab4
 			Assert.AreEqual(new VersionsInterval(new Versions("0.0.1"), new Versions("9.3.1")).ToString(), VersionsInterval.Intersection(new VersionsInterval(">0.0.0 <=9.3.1"),new VersionsInterval(new Versions("3.1.4"), new Versions("5.0.9"))).ToString());
 
 			Assert.AreEqual(null,VersionsInterval.Intersection(new VersionsInterval("<1.0.0"),new VersionsInterval(">2.0.0")));
+			Assert.AreEqual( VersionsInterval.Intersection(new VersionsInterval("<2.0.0"), new VersionsInterval(">3.0.0")), null);
 		}
 
 		[Test]
