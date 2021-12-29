@@ -32,7 +32,6 @@ namespace TestingLab4
 			//Assert.AreEqual(null,VersionsInterval.Union(new VersionsInterval("<1.0.0"),new VersionsInterval(">2.0.0")));
 			Assert.AreEqual( VersionsInterval.Nonunion(new VersionsInterval("<=2.0.0"), new VersionsInterval(">=3.0.0 <=4.0.0")), "0.0.0 2.0.0 || 3.0.0 4.0.0");
 			Assert.AreEqual(VersionsInterval.Nonunion(new VersionsInterval("<=2.0.0"), new VersionsInterval(">=3.0.0")), "0.0.0 2.0.0 || 3.0.0 2147483647.2147483647.2147483647");
-			Assert.AreEqual(VersionsInterval.Union(new VersionsInterval("<2.0.0"), new VersionsInterval(">3.0.0")), null);
 			Assert.AreEqual(VersionsInterval.Union(new VersionsInterval(new Versions("0.0.0"), new Versions("2.0.0")), new VersionsInterval(new Versions("1.0.0"), new Versions("3.0.0"))).ToString(), new VersionsInterval(new Versions("0.0.0"), new Versions("3.0.0")).ToString()); 
 
 		}
