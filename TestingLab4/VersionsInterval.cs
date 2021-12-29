@@ -191,7 +191,7 @@ namespace TestingLab4
             }
             return false;
         }
-        public static VersionsInterval[] Intersection(VersionsInterval version1, VersionsInterval version2)
+        public static VersionsInterval[] Union(VersionsInterval version1, VersionsInterval version2)
         {
             if (version1.leftVersion <= version2.leftVersion)
             {
@@ -231,7 +231,7 @@ namespace TestingLab4
             }
             return new VersionsInterval[0];
         }
-        public static VersionsInterval? Union(VersionsInterval version1, VersionsInterval version2)
+        public static VersionsInterval? Intersection(VersionsInterval version1, VersionsInterval version2)
         {
             if (version1.leftVersion <= version2.leftVersion)
             {
