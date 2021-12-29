@@ -231,7 +231,7 @@ namespace TestingLab4
             }
             return new VersionsInterval[0];
         }
-        public static VersionsInterval? Union(VersionsInterval version1, VersionsInterval version2)
+        public static VersionsInterval Union(VersionsInterval version1, VersionsInterval version2)
         {
             if (version1.leftVersion <= version2.leftVersion)
             {
@@ -263,8 +263,29 @@ namespace TestingLab4
                 }
                 return null;
             }
+            if(version1.leftVersion<=version2.leftVersion)
+            {
+                if(version1.rightVersion<=version2.leftVersion)
+                {
+                    Nonunion(version1, version2);
+                }
+            }
             return null;
         }
+
+        public static string Nonunion(VersionsInterval version1, VersionsInterval version2)
+        {
+            if (version1.leftVersion <= version2.leftVersion)
+            {
+                if (version1.rightVersion <= version2.leftVersion)
+                {
+                    string result = $"{version1.leftVersion} {version1.rightVersion} || {version2.leftVersion} {version2.rightVersion}";
+                    return result;
+                }
+            }
+            return null;
+        }
+
         public static bool IsEqual(VersionsInterval version1, VersionsInterval version2)
         {
             if (version1.leftVersion == version2.leftVersion && version1.rightVersion == version2.rightVersion)
